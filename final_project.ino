@@ -67,7 +67,7 @@ void loop() {
   time[1] = time[0];
   pos_his[0] = pos;
   time[0] = millis();
-  angular_velocity = (pos_his[0]-pos_his[1])/(time[0]-time[1]);
+  angular_velocity = float(pos_his[0]-pos_his[1])/(time[0]-time[1]);
 
 
 }
