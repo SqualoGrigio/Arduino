@@ -57,7 +57,7 @@ void loop() {
 
   //***************************angular velocity calc***********************************
 
-  // if the runtime of a interrupt function is larger than 1024 microseconds, use delayMicroseconds() to calc w
+  // if the runtime of a interrupt function is larger than 1024/4.81 microseconds, use delayMicroseconds() to calc w
   //pos_his[1] = pos;
   //delayMicroseconds(10000);//10ms delay
   //pos_his[0] = pos;
