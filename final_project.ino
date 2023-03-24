@@ -93,7 +93,7 @@ void update_data_b() {
 // runtime 4 microseconds
 
 void calc_pos_a() {
-  if (encoder_b[1] == 0 && encoder_b[0] == 0) {  //can delete encoder_b[1]==0 after verification: pos will off by 1 count if deleting encoder_b[1]
+  if (encoder_b[1] == 0 && encoder_b[0] == 0) {  //can delete encoder_b[1]==0 after verification: pos will be off by 1 count if deleting encoder_b[1]
     if (encoder_a[0] > encoder_a[1]) {
       pos++;
     }
@@ -121,7 +121,7 @@ void calc_pos_a() {
 }
 
 void calc_pos_b() {
-  if (encoder_a[1] == 0 && encoder_a[0] == 0) {  //can delete encoder_a[1]==0 after verification: pos will off by 1 count if deleting encoder_b[1]
+  if (encoder_a[1] == 0 && encoder_a[0] == 0) {  //can delete encoder_a[1]==0 after verification: pos will be off by 1 count if deleting encoder_b[1]
     if (encoder_b[0] < encoder_b[1]) {
       pos++;
     }
