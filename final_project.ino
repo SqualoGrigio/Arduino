@@ -18,8 +18,8 @@ void setup() {
   pinMode(2, INPUT);
   pinMode(3, INPUT);
 
-  attachInterrupt(digitalPinToInterrupt(encoder_a_pin), renew_data_a, CHANGE);
-  attachInterrupt(digitalPinToInterrupt(encoder_b_pin), renew_data_b, CHANGE);
+  attachInterrupt(digitalPinToInterrupt(encoder_a_pin), update_data_a, CHANGE);
+  attachInterrupt(digitalPinToInterrupt(encoder_b_pin), update_data_b, CHANGE);
 
   Serial.begin(9600);
   time[0] = millis();  
@@ -72,17 +72,17 @@ void loop() {
 
 }
 
-void renew_data_a() {
+void update_data_a() {
   int a = digitalRead(encoder_a_pin);
   encoder_a[1] = encoder_a[0];
   encoder_a[0] = a;
   encoder_b[1] = encoder_b[0];
   calc_pos_a();
 }
-//run time 4 microseconds
+//runtime 4 microseconds
 
 
-void renew_data_b() {
+void update_data_b() {
   int b = digitalRead(encoder_b_pin);
   encoder_a[1] = encoder_a[0];
 
@@ -90,7 +90,7 @@ void renew_data_b() {
   encoder_b[0] = b;
   calc_pos_b();
 }
-// run time 4 microseconds
+// runtime 4 microseconds
 
 void calc_pos_a() {
   if (encoder_b[1] == 0 && encoder_b[0] == 0) {  //can delete encoder_b[1]==0 after verification: pos will off by 1 count if deleting encoder_b[1]
